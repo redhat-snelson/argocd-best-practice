@@ -1,2 +1,10 @@
 resources:
 - ../../../common/apps/nexus # base
+
+# helmChartInflationGenerator:
+# - chartName: sonatype-nexus
+#   chartVersion: 4.1.1
+#   chartRepoUrl: https://oteemo.github.io/charts
+#   # chartHome: ../../../common/apps/nexus/base/
+#   helmHome: vendor/charts
+#   values: environments/prod/app/nexus/values.yaml
