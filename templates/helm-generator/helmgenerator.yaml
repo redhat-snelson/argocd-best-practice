@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: HelmGenerator
+metadata:
+  name: anchore
+chart:
+  path: ../../vendor/anchore/charts/anchore
+releaseName: anchore
+# namespace: anchore
+valueFiles:
+  - values.yaml # defaults
+  - ../../environments/{{ .Values.environment.name }}/values.yaml # environment-specific
+  - ../../environments/{{ .Values.environment.name }}/app/{{ .Chart.name }}/values.yaml # application-specific

@@ -1,0 +1,28 @@
+apiVersion: wolfs.io/v1beta1
+kind: HelmChart
+metadata:
+  name: nexus
+  namespace: nexus
+
+# releaseName: sonatype-nexus
+
+# chart:
+#   git: https://github.com/redhat-snelson/helmchart-sonatype-nexus
+#   ref: master
+
+# chart:
+#   repository: https://oteemo.github.io/charts
+#   name: sonatype-nexus
+#   version: 4.1.1
+
+chart:
+  path: ../../../../vendor/charts/sonatype-nexus-4.1.1.tgz
+
+valueFiles:
+  # - ../../../environments/
+  # - ./values.yaml
+
+values:
+
+sopsValueFiles:
+  # - ./values.enc.yaml

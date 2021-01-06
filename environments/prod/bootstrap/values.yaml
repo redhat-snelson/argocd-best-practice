@@ -1,0 +1,89 @@
+tenant:
+  project: default
+
+  environment:
+    name: ocp4
+    type: openshift
+
+  repoURL: ssh://git@gitlab.consulting.redhat.com:2222/navy-black-pearl/lighthouse-bootstrap.git
+  server: https://kubernetes.default.svc
+  path: bootstrap/umbrella
+  targetRevision: snelson
+
+  appOverrides:
+    # Issues: SCC, ServiceMonitor, Secrets
+    # Current Status: SCC Fault
+    anchore: 
+      enabled: true
+  
+    # Issues: ??
+    # Current Status: SCC Fault
+    artifactory:
+      enabled: true
+
+    # Issues: Secrets
+    # Current Status: SCC Fault
+    atlantis:
+      enabled: true
+
+    # Issues:
+    # Current Status: ArgoCD Fault
+    gitlab:
+      enabled: false
+
+    # Issues:
+    # Current Status: Image Fault
+    harbor:
+      enabled: true
+
+    # Issues: ??
+    # Current Status: Image Fault
+    jira:
+      enabled: true
+
+    # Issues: ChartGenerator
+    # Current Status: ArgoCD Fault
+    keel:
+      enabled: false
+
+    # Issues:
+    # Current Status: NoTest
+    keycloak:
+      enabled: false
+
+    # Issues:
+    # Current Status: NoTest
+    mattermost:
+      enabled: false
+
+    # Issues:
+    # Current Status: NoTest
+    minio-operator:
+      enabled: false
+
+    # Issues:  SCC, ServiceMonitor
+    # Current Status: Good
+    nexus:
+      enabled: true
+
+    # Issues:
+    # Current Status: NoTest
+    psql-operator:
+      enabled: false
+
+    # Issues: SCC
+    # Current Status: ?? Fault
+    sonarqube:
+      enabled: true
+
+    # Issues: SCC
+    # Current Status: Fail
+    twistlock:
+      enabled: true
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

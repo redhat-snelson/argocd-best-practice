@@ -1,0 +1,10 @@
+apiVersion: v2
+name: prod
+version: "0.1.0"
+
+dependencies:
+  - name: tenant
+    # alias: prod-tenant
+    version: "0.1.0"
+    repository: file://../../bootstrap/charts/tenant
+    # condition: tenant.enabled

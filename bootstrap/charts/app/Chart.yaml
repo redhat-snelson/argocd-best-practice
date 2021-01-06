@@ -1,0 +1,4 @@
+apiVersion: v2
+name: app
+version: "0.1.0"
+description: ArgoCD child application chart, forcing explicit declaration of finalizers, sync waves, and specific paths

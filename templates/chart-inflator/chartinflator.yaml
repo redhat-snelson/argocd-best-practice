@@ -1,0 +1,15 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: notImportantHere
+chartName: minecraft
+# chartHome: ../../vendor/charts
+chartRepoUrl: https://kubernetes-charts.storage.googleapis.com
+chartVersion:
+# releaseName: test
+# releaseNamespace: test
+valuesMerge: override # or merge
+# helmBin:
+# helmHome:
+# values:
+# valuesLocal:

@@ -1,0 +1,8 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: notImportantHere
+# chartRepoName: oteemocharts
+# chartRepoUrl: https://oteemo.github.io/charts
+chartName: sonatype-nexus
+chartHome: ./vendor/charts

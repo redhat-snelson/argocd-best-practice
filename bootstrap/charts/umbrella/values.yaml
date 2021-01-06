@@ -1,0 +1,61 @@
+# Each app must be assigned to a sync wave, which ensures certain resources are in a healthy status before other resources are synced.
+# Applications with a lower sync wave are evaluated and synced first. Waves can be negative to ensure applications on those waves are synced before all others.
+
+twistlock:
+  enabled: false
+  wave: "2"
+
+vault:
+  enabled: false
+  wave: "2"
+
+anchore:
+  enabled: false
+  wave: "4"
+
+gitlab:
+  enabled: false
+  wave: "4"
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    version: v1
+    jsonPointers:
+    - /spec/replicas
+    - /spec/template/spec/containers/0/imagePullPolicy
+
+mattermost:
+  enabled: false
+  wave: "4"
+
+jira:
+  enabled: false
+  wave: "4"
+
+harbor:
+  enabled: false
+  wave: "4"
+
+sonarqube:
+  enabled: false
+  wave: "4"
+
+artifactory:
+  enabled: false
+  wave: "4"
+
+nexus:
+  enabled: false
+  wave: "4"
+
+keel:
+  enabled: false
+  wave: "4"
+
+keycloak:
+  enabled: false
+  wave: "4"
+
+atlantis:
+  enabled: false
+  wave: "4"

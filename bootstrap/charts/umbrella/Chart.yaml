@@ -1,0 +1,90 @@
+apiVersion: v2
+name: umbrella
+version: "0.1.0"
+description: Chart dedicated to building umbrella app to orchestrate ArgoCD app of apps
+
+# Applications within values.yaml must also be added in this dependency list in order to add them to the orchestrating umbrella app.
+dependencies:
+  - name: app
+    alias: twistlock
+    version: 0.1.0
+    repository: file://../app/
+    condition: twistlock.enabled
+
+  - name: app
+    alias: psql-operator
+    version: 0.1.0
+    repository: file://../app/
+    condition: psql-operator.enabled
+
+  - name: app
+    alias: vault
+    version: 0.1.0
+    repository: file://../app/
+    condition: vault.enabled
+
+  - name: app
+    alias: anchore
+    version: 0.1.0
+    repository: file://../app/
+    condition: anchore.enabled
+
+  - name: app
+    alias: mattermost
+    version: 0.1.0
+    repository: file://../app/
+    condition: mattermost.enabled
+
+  - name: app
+    alias: gitlab
+    version: 0.1.0
+    repository: file://../app/
+    condition: gitlab.enabled
+
+  - name: app
+    alias: jira
+    version: 0.1.0
+    repository: file://../app/
+    condition: jira.enabled
+
+  - name: app
+    alias: harbor
+    version: 0.1.0
+    repository: file://../app/
+    condition: harbor.enabled
+
+  - name: app
+    alias: sonarqube
+    version: 0.1.0
+    repository: file://../app/
+    condition: sonarqube.enabled
+
+  - name: app
+    alias: artifactory
+    version: 0.1.0
+    repository: file://../app/
+    condition: artifactory.enabled
+
+  - name: app
+    alias: nexus
+    version: 0.1.0
+    repository: file://../app/
+    condition: nexus.enabled
+
+  - name: app
+    alias: keel
+    version: 0.1.0
+    repository: file://../app/
+    condition: keel.enabled
+
+  - name: app
+    alias: keycloak
+    version: 0.1.0
+    repository: file://../app/
+    condition: keycloak.enabled
+
+  - name: app
+    alias: atlantis
+    version: 0.1.0
+    repository: file://../app/
+    condition: atlantis.enabled

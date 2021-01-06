@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  namespace: {{ .Release.Namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    {{- if .Values.wave }}
+    argocd.argoproj.io/sync-wave: {{ .Values.wave | quote }}
+    {{- end }}
+spec:
+  project: {{ .Values.project | default .Values.global.project }}
+
+  source:
+    repoURL: {{ .Values.repoURL | default .Values.global.repoURL }}
+    path: apps/test/base
+    targetRevision: {{ .Values.targetRevision | default .Values.global.targetRevision }}
+
+  destination:
+    server: {{ .Values.server | default .Values.global.server }}
+    namespace: {{ .Release.Name }}-{{ .Chart.Name }}
+
+  syncPolicy:
+{{- if .Values.syncPolicy }}
+{{- toYaml .Values.syncPolicy | nindent 4 }}
+{{- end }}
+
+{{- if .Values.ignoreDifferences }}
+  ignoreDifferences:
+{{- toYaml .Values.ignoreDifferences | nindent 4 }}
+{{- end }}

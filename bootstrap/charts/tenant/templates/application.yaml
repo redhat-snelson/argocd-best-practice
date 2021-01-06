@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  namespace: {{ .Release.Namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Release.Name }}-{{ .Chart.Name }}
+
+  source:
+    repoURL: {{ .Values.repoURL }}
+    path: {{ .Values.path }}
+    targetRevision: {{ .Values.targetRevision }}
+
+    helm:
+      releaseName: {{ .Release.Name }}
+      values: |
+        global:
+          repoURL: {{ .Values.repoURL }}
+          server: {{ .Values.server }}
+          project: {{ .Release.Name }}-{{ .Chart.Name }}
+          targetRevision: {{ .Values.targetRevision }}
+          environment: 
+            name: {{ .Values.environment.name }}
+            type: {{ .Values.environment.type }}
+      {{- if .Values.appOverrides }}
+      {{- toYaml .Values.appOverrides | nindent 8 }}
+      {{- end }}
+        syncPolicy:
+      {{- if .Values.syncPolicy }}
+      {{- toYaml .Values.syncPolicy | nindent 10 }}
+      {{- end }}
+
+  destination:
+    server: {{ .Values.server }}
+    namespace: {{ .Release.Namespace }}
+
+  syncPolicy:
+  {{- if .Values.syncPolicy }}
+  {{- toYaml .Values.syncPolicy | nindent 4 }}
+  {{- end }}

@@ -1,0 +1,3 @@
+bootstrap/charts/*/Chart.lock
+bootstrap/charts/*/charts/*.tgz
+vendor/charts/*.tgz
