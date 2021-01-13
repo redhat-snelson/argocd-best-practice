@@ -2,8 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-# - manifests/namespace.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  # - manifests/namespace.yaml
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/namespace-install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.8/manifests/namespace-install.yaml
 
-patchesStrategicMerge:
-patchesJson6902:
+# patchesStrategicMerge:
+# patchesJson6902:

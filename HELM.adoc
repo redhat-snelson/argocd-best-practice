@@ -1,0 +1,110 @@
+:chart_loc: vendor/charts
+:helm_pull: helm pull -d {chart_loc} --debug
+
+= Required Helm Charts
+
+== Anchore
+
+[subs="attributes"]
+----
+helm repo add anchore https://charts.anchore.io
+{helm_pull} anchore/anchore-engine
+----
+
+== Artifactory
+
+[subs="attributes"]
+----
+helm repo add center https://repo.chartcenter.io
+{helm_pull} center/jfrog/artifactory-ha
+----
+
+== Atlantis
+
+[subs="attributes"]
+----
+helm repo add runatlantis https://runatlantis.github.io/helm-charts
+{helm_pull} runatlantis/atlantis
+----
+
+== GitLab
+
+[subs="attributes"]
+----
+helm repo add gitlab https://charts.gitlab.io
+helm pull -d {chart_loc} --debug gitlab/gitlab
+----
+
+== Harbor
+
+[subs="attributes"]
+----
+helm repo add harbor https://helm.goharbor.io
+helm pull -d {chart_loc} --debug harbor/harbor
+----
+
+== Jenkins
+
+[subs="attributes"]
+----
+helm repo add jenkins https://charts.jenkins.io
+helm pull -d {chart_loc} --debug jenkins/jenkins
+----
+
+== Jira
+
+[subs="attributes"]
+----
+helm repo add atlassian https://charts.atlassian.io
+helm pull -d {chart_loc} --debug atlassian/jira
+----
+
+== Keel
+
+[subs="attributes"]
+----
+helm repo add keel https://charts.keel.sh
+helm pull -d {chart_loc} --debug keel/keel
+----
+
+== KeyCloak
+
+[subs="attributes"]
+----
+----
+
+== MatterMost
+
+[subs="attributes"]
+----
+----
+
+== Nexus
+
+[subs="attributes"]
+----
+helm repo add oteemocharts https://oteemo.github.io/charts
+helm pull -d {chart_loc} --debug oteemocharts/sonatype-nexus
+----
+
+== SonarQube
+
+[subs="attributes"]
+----
+helm repo add oteemocharts https://oteemo.github.io/charts
+helm pull -d {chart_loc} --debug oteemocharts/sonarqube
+----
+
+== TwistLock
+
+[subs="attributes"]
+----
+----
+
+== Vault
+
+[subs="attributes"]
+----
+helm repo add hashicorp https://helm.releases.hashicorp.com
+helm pull -d {chart_loc} --debug hashicorp/vault
+----

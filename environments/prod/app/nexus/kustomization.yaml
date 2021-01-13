@@ -8,3 +8,13 @@ resources:
 #   # chartHome: ../../../common/apps/nexus/base/
 #   helmHome: vendor/charts
 #   values: environments/prod/app/nexus/values.yaml
+
+# ignoreDifferences:
+#   - group: admissionregistration.k8s.io
+#     kind: ValidatingWebhookConfiguration
+#     jsonPointers:
+#     - /webhooks
+#   - group: apiextensions.k8s.io
+#     kind: CustomResourceDefinition
+#     jsonPointers:
+#     - /status
